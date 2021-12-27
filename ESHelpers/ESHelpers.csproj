@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <Title>ESHelpers</Title>
+        <Authors>Leon Weemen</Authors>
+        <PackageProjectUrl>https://github.com/weemen/ESHelpers</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/weemen/ESHelpers</RepositoryUrl>
+        <PackageTags>EventSourcing EventStore</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.2</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

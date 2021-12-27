@@ -3,7 +3,7 @@ using ESHelpers.Encryption;
 
 namespace ESHelpers.Infratructure.Crypto
 {
-    public class CryptoRepository
+    public class CryptoRepository : ICryptoRepository
     {
         private ICryptoStore _cryptoStore;
         

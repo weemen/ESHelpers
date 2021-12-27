@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace ESHelpers.Infratructure.Crypto
 {
-    public class MySql
+    public class MySql : ICryptoStore
     {
         private string _connectionString;
 
