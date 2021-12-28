@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ESHelpers.Encryption;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -20,12 +21,12 @@ namespace ESHelpers.Infratructure.Event.Helpers
             return defaultSettings;
         }
     
-        public JsonSerializerSettings CreateForEncryption(string identifier)
+        public JsonSerializerSettings CreateForEncryption(string identifier, Dictionary<string, string> salts)
         {
             var encryptor = _encryptorDecryptor.GetEncryptor(identifier);
             var fieldEncryptionDecryption = new FieldEncryptionDecryption();
             var serializationContractResolver = 
-                new SerializationContractResolver(encryptor, fieldEncryptionDecryption);
+                new SerializationContractResolver(encryptor, fieldEncryptionDecryption, salts);
             var jsonSerializerSettings = GetSettings(serializationContractResolver);
             return jsonSerializerSettings;
         }
