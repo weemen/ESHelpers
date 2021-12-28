@@ -8,17 +8,24 @@
         <RepositoryUrl>https://github.com/weemen/ESHelpers</RepositoryUrl>
         <PackageTags>EventSourcing EventStore</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageVersion>1.0.4</PackageVersion>
+        <Copyright>GPLv3</Copyright>
+        <PackageLicenseUrl>https://choosealicense.com/licenses/gpl-3.0/</PackageLicenseUrl>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Serializers" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="EventStore.Client" Version="21.2.1" />
       <PackageReference Include="MySql.Data" Version="8.0.27" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Infratructure\Event\Helpers\Converters\IFieldConverter.cs" />
+      <Compile Remove="Infratructure\Event\Helpers\Converters\EncryptionFieldConverter.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Infratructure\Event\Helpers\Converters" />
     </ItemGroup>
 
 </Project>
