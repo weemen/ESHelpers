@@ -50,5 +50,20 @@ namespace ESHelpersTests.Infrastructure.Crypto
             
             Assert.Equal(encryptionKey, store.loadKeyFromStore(identifier));
         }
+
+        [Fact]
+        public void it_can_remove_a_key()
+        {
+            var store = new InMemory();
+            var identifier = new Guid().ToString();
+            
+            Aes aes = Aes.Create();
+            aes.Padding = PaddingMode.PKCS7;
+            var encryptionKey = new EncryptionKey(aes.Key, aes.IV);
+            store.SaveKeyToStore(identifier, encryptionKey);
+            Assert.Single(store.Store);
+            store.RemoveKeyFromStore(identifier);
+            Assert.Empty(store.Store);
+        }
     }
 }
