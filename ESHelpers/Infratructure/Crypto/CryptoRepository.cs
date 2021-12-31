@@ -12,7 +12,7 @@ namespace ESHelpers.Infratructure.Crypto
             this._cryptoStore = store;
         }
 
-        public EncryptionKey GetExistingOrNew(string identifier, Func<EncryptionKey> keyGenerator)
+        public EncryptionKey? GetExistingOrNew(string identifier, Func<EncryptionKey> keyGenerator)
         {
             var encryptionKey = this._cryptoStore.loadKeyFromStore(identifier);
             if (encryptionKey != null) return encryptionKey;

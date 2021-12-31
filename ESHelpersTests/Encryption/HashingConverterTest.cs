@@ -1,6 +1,4 @@
 using ESHelpers.Encryption;
-using Moq;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace ESHelpersTests.Encryption
