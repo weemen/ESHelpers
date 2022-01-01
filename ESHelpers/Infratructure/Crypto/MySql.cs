@@ -12,7 +12,7 @@ namespace ESHelpers.Infratructure.Crypto
             this._connectionString = connectionString;
         }
 
-        public EncryptionKey loadKeyFromStore(string identifier)
+        public EncryptionKey? loadKeyFromStore(string identifier)
         {
             var connection = new MySqlConnection(this._connectionString);
             connection.Open();

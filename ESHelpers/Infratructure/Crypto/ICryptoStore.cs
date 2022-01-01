@@ -4,7 +4,7 @@ namespace ESHelpers.Infratructure.Crypto
 {
     public interface ICryptoStore
     {
-        public EncryptionKey loadKeyFromStore(string identifier);
+        public EncryptionKey? loadKeyFromStore(string identifier);
         
         public void SaveKeyToStore(string identifier, EncryptionKey encryptionKey);
 

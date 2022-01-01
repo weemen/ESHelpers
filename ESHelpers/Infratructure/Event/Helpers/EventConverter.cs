@@ -12,7 +12,7 @@ namespace ESHelpers.Infratructure.Event.Helpers
         {
             _jsonSerializer = jsonSerializer;
         }
-    
+        
         public IDomainEvent ToEvent(ResolvedEvent resolvedEvent)
         {
             var data = resolvedEvent.Event.Data;
@@ -21,10 +21,19 @@ namespace ESHelpers.Infratructure.Event.Helpers
             var persistableEvent =(dynamic) _jsonSerializer.Deserialize(data, metadata, eventName);
             return persistableEvent;
         }
+        
+        public IDomainEvent ToEvent(EventData eventData)
+        {
+            var data = eventData.Data;
+            var metadata = eventData.Metadata;
+            var eventName = eventData.Type;
+            var persistableEvent =(dynamic) _jsonSerializer.Deserialize(data, metadata, eventName);
+            return persistableEvent;
+        }
 
         public EventData ToEventData(IDomainEvent @event)
         {
-            var eventTypeName = @event.GetType().FullName;
+            var eventTypeName = $"{@event.GetType().FullName}, {@event.GetType().Assembly.GetName().Name}";
             var id = Guid.NewGuid();
             var serializedEvent = _jsonSerializer.Serialize(@event);
             var data = serializedEvent.Data;
