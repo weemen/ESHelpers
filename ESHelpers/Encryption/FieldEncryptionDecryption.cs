@@ -9,7 +9,7 @@ namespace ESHelpers.Encryption
     {
         private const string EncryptionPrefix = "crypto.";
         
-        public object GetEncryptedOrDefault(object value, ICryptoTransform encryptor)
+        public object GetEncryptedOrDefault(object value, ICryptoTransform? encryptor)
         {
             if (encryptor is null)
             {
