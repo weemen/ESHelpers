@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ESHelpers.EventSourcing;
+using ESHelpers.Infratructure.Event.Exceptions;
 using ESHelpers.Infratructure.Event.Helpers;
 using EventStore.ClientAPI;
 
@@ -54,6 +55,10 @@ namespace ESHelpers.Infratructure.Event
                 events.Add(loadedEvent);
             }
 
+            if (events.Count == 0)
+            {
+                throw new EventStreamNotExistException("Stream does not exist in EventStoreDB");
+            }
             return events;
         }
     }
