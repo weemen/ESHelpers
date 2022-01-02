@@ -6,6 +6,7 @@ using ESHelpers.Infratructure.Crypto;
 using ESHelpers.Infratructure.Event;
 using ESHelpers.Infratructure.Event.Exceptions;
 using ESHelpers.Infratructure.Event.Helpers;
+using ESHelpers.Internal;
 using Xunit;
 
 namespace ESHelpersTests.Infrastructure.Event
@@ -56,7 +57,8 @@ namespace ESHelpersTests.Infrastructure.Event
                         )
                     ),
                     new List<Type>{ typeof(IDomainEvent)}
-                )
+                ),
+                ClassMappingCache.Instance
             );
         }
     }

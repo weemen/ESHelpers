@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using ESHelpers.Internal;
 
 namespace ESHelpers.EventSourcing
 {
@@ -36,7 +37,9 @@ namespace ESHelpers.EventSourcing
         
         protected MethodInfo? HasOverloadForArgument(IDomainEvent e)
         {
-            return GetType().GetMethod(name: "Apply", types: new[] { e.GetType() });
+            var classMappingCache = ClassMappingCache.Instance;
+            var fullClassPath = classMappingCache.lookup(e.GetType().Name);
+            return GetType().GetMethod(name: "Apply", types: new[] { Type.GetType(fullClassPath) });
         }
 
     }
