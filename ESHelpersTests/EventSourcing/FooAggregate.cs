@@ -20,7 +20,7 @@ namespace ESHelpersTests.EventSourcing
             return aggregate;
         }
 
-        protected void Apply(FooEvent e)
+        public void Apply(FooEvent e)
         {
             _fooId = Guid.Parse(e.Id);
         }
