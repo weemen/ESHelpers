@@ -26,8 +26,8 @@ It's just time to build your domains
 
 ## Documentation:
 ### Easy? Well let's go!! How can we start?
-- Building a very simple aggregate
-- Dealing with sensitive information part 1: Encryption
+- [Building a very simple aggregate](docs/01-building-a-very-simple-aggregate.md)
+- Dealing with sensitive information part 1: Crypto Schredding
 - Dealing with sensitive information part 2: Hashed values
 
 ### Technical Documentation
