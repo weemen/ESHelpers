@@ -17,7 +17,10 @@ namespace ESHelpers.Internal
 
         private ClassMappingCache()
         {
-            this.initializeCache(typeof(IDomainEvent));
+            if (_cache.Count == 0)
+            {
+                this.initializeCache(typeof(IDomainEvent));
+            }
         }
         
         public void initializeCache(Type typeToCache)
