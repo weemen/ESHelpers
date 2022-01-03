@@ -27,8 +27,7 @@ It's just time to build your domains
 ## Documentation:
 ### Easy? Well let's go!! How can we start?
 - [Building a very simple aggregate](docs/01-building-a-very-simple-aggregate.md)
-- [Dealing with sensitive information part 1: Crypto Schredding](docs/02-dealing-with-sensitive-information-p1-crypto-schredding.md)
-- [Dealing with sensitive information part 2: Hashed values](docs/03-dealing-with-sensitive-information-p2-hashing-values.md)
+- [Dealing with sensitive information: Crypto Schredding & Encryption](docs/02-dealing-with-sensitive-information.md)
 
 ### Technical Documentation
 - Implementing my own eventstore
