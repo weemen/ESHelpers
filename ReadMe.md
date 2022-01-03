@@ -30,8 +30,8 @@ It's just time to build your domains
 - [Dealing with sensitive information: Crypto Schredding & Encryption](docs/02-dealing-with-sensitive-information.md)
 
 ### Technical Documentation
-- Implementing my own eventstore
-- Implementing my own cryptostore
+- [Implementing my own eventstore](docs/implementing-own-eventstore.md)
+- [Implementing my own cryptostore](docs/implementing-own-cryptostore.md)
 
 ## FAQ
 - [Which eventstores are currently supported?](#which-eventstores-are-currently-supported)

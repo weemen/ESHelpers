@@ -240,6 +240,44 @@ private EventConverter CreateEventConverter()
 
 #### Create the repository
 ```c#
+public class EventStoreRepository<TAggregate> where TAggregate : IAggregateRoot
+{
+    private IEventStore _store;
+
+    public EventStoreRepository(IEventStore store)
+    {
+        _store = store;
+    }
+
+    public void Save(TAggregate aggregateRoot)
+    {
+        var uncommittedEvents = aggregateRoot.getUncommittedEvents();
+        var originalPlayHead = aggregateRoot.getPlayHead() - uncommittedEvents.Count;
+
+        foreach (var domainEvent in uncommittedEvents)
+        {
+            _store.Store(domainEvent, aggregateRoot.getAggregateRootId(),originalPlayHead);
+            originalPlayHead++;
+            Console.WriteLine("playhead upped");
+        }
+    }
+
+    public IAggregateRoot Load(Guid streamId)
+    {
+        Console.WriteLine($"[{streamId.ToString()}] Loading aggregate root");
+        dynamic aggregate = Activator.CreateInstance<TAggregate>();
+        var eventStream = this._store.LoadStream(streamId);
+        foreach (var eventFromStream in eventStream)
+        {
+            aggregate.Apply(eventFromStream);
+            aggregate.setExpectedPlayHead(aggregate.getPlayHead()+1);
+        }
+        return aggregate;
+    }
+}
+
+...
+
 var store = new EventStoreDb(conn, streamCategory, CreateEventConverter());
 var eventsRepository = new EventStoreRepository<User>(store);
 ```
