@@ -50,7 +50,7 @@ public class InitiateUserRegistration
         private string _email;
         private string _password;
         
-        public InitiateRegistrationFyreUser(string name, string email, string password)
+        public InitiateUserRegistration(string name, string email, string password)
         {
             _name = name;
             _email = email;
